@@ -17,7 +17,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 // No dotenv now — using hardcoded URI
-const MONGO_URI = "mongodb://127.0.0.1:27017/fitflow"; // Your MongoDB URI
+const MONGO_URI = "mongodb+srv://ujjawal:<ujjawal21mongo>@cluster0.dgquhlp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"; // Your MongoDB URI
 const PORT = process.env.port || 5000; // Your server port
 
 // Connect to MongoDB
