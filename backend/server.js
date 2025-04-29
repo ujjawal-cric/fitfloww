@@ -8,7 +8,7 @@ const cors = require("cors");
 const app = express();
 // CORS configuration
 const corsOptions = {
-    origin: "https://yourfrontenddomain.com",  // Replace with your frontend domain URL
+    origin: "https://fitfloww-frontend.onrender.com",  // Replace with your frontend domain URL
     methods: ["GET", "POST", "PUT", "DELETE"], // Add the necessary methods you want to allow
     credentials: true, // If you are using cookies or sessions
   };
