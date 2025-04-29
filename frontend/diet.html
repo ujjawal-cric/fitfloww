@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FitFlow - Diet Suggestions</title>
+  <link rel="stylesheet" href="css/diet.css" />
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader">
+    <img src="images/logo.png" alt="FitFlow Logo" class="loader-logo" />
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">FitFlow</div>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="diet.html" class="active">Diet</a></li>
+      <li><a href="exercise.html">Exercise</a></li>
+    </ul>
+  </nav>
+
+  <div class="dashboard-container">
+    <header class="dashboard-header">
+      <h1>Your Personalized Diet Plan</h1>
+    </header>
+
+    <section class="dashboard-cards">
+      <div class="card">
+        <h3>Breakfast</h3>
+        <ul>
+          <li>🥚 2 Boiled Eggs</li>
+          <li>🍞 2 Brown Bread Toasts</li>
+          <li>🍌 1 Banana</li>
+          <li>🥛 1 Glass Milk or Protein Shake</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Lunch</h3>
+        <ul>
+          <li>🍚 Brown Rice or Chapati (2)</li>
+          <li>🍗 Grilled Chicken or Paneer</li>
+          <li>🥗 Mixed Veg Salad</li>
+          <li>🥣 Curd or Yogurt</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Evening Snack</h3>
+        <ul>
+          <li>🍎 Apple or Any Seasonal Fruit</li>
+          <li>🫘 Handful of Nuts (Almonds, Walnuts)</li>
+          <li>🧃 Green Tea or Lemon Water</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Dinner</h3>
+        <ul>
+          <li>🍲 Light Soup or Salad</li>
+          <li>🍗 Grilled Fish or Tofu</li>
+          <li>🥬 Steamed Vegetables</li>
+          <li>🥛 Warm Milk before Bed</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("loader");
+      document.body.style.opacity = "1";
+      loader.style.opacity = "0";
+      setTimeout(() => {
+        loader.style.display = "none";
+      }, 500);
+    });
+  </script>
+</body>
+</html>
+
+

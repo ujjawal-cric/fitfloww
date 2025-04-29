@@ -1,0 +1,155 @@
+
+  
+  
+  /* Reset and base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    min-height: 100vh;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+  }
+  
+  /* Loader */
+  #loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.4s ease;
+  }
+  
+  .loader-logo {
+    width: 90px;
+    animation: spin 2s infinite linear;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Navbar */
+  .navbar {
+    background: #262d38;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .nav-links li {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-links a,
+  .nav-links button {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    transition: background 0.3s ease;
+  }
+  
+  .nav-links a:hover,
+  .nav-links button:hover {
+    background: #3a4354;
+    border-radius: 4px;
+  }
+  
+  .nav-links .active {
+    background: #4caf50;
+    border-radius: 4px;
+  }
+  
+  /* Page Container */
+  .dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+  }
+  
+  /* Header */
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  /* Cards Grid */
+  .dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 30px;
+    margin-bottom: 100px;
+  }
+  
+  /* Card Style */
+  .card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 35px rgba(0, 255, 255, 0.15);
+  }
+  
+  .card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+  }
+  
+  .card ul {
+    list-style: none;
+    padding: 0;
+    line-height: 2;
+    font-size: 1rem;
+  }
+  

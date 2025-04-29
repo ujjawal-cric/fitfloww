@@ -1,0 +1,85 @@
+<!-- frontend/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FitFlow Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  
+  <div id="loader">
+    <img src="images/logo.png" alt="FitFlow Logo" class="loader-logo" />
+  </div>
+  <nav class="navbar">
+    <div class="logo">FitFlow</div>
+    <ul class="nav-links">
+      <li><a href="dashboard.html" class="active">Dashboard</a></li>
+      <li><a href="diet.html">Diet</a></li>
+      <li><a href="exercise.html">Exercise</a></li>
+      
+    </ul>
+  </nav>
+
+  <div class="dashboard-container">
+    <header class="dashboard-header">
+      <h1>Welcome to FitFlow</h1>
+      <button id="logoutBtn">Logout</button>
+    </header>
+
+    <section class="dashboard-cards">
+      <div class="card">
+        <h3>Today's Workout</h3>
+        <ul>
+          
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Update Progress</h3>
+        <form id="progressForm">
+          <label>Workout</label>
+          <input type="text" id="workout" placeholder="e.g., Push-ups" required />
+          <label>Progress (%)</label>
+          <input type="number" id="progress" placeholder="0-100" required />
+          <button type="submit">Update</button>
+        </form>
+      </div>
+
+      <div class="card chart-card">
+        <h3>Workout Progress</h3>
+        <canvas id="progressChart"></canvas>
+      </div>
+    </section>
+  </div>
+
+  
+  <script src="js/dashboard.js"></script>
+  <script>
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("userDetails").innerText = `Logged in as ${user.email}`;
+    }
+
+    function logout() {
+      localStorage.clear();
+      window.location.href = "login.html";
+    }
+  </script>
+ <script>
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("loader");
+      document.body.style.opacity = "1";
+      loader.style.opacity = "0";
+      setTimeout(() => {
+        loader.style.display = "none";
+      }, 500);
+    });
+  </script>
+  
+</body>
+</html>
