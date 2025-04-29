@@ -1,6 +1,7 @@
 // frontend/js/auth.js
 
-const BASE_URL = "https://fitfloww-backend.onrender.com";
+const BASE_URL = "https://fitfloww-backend.onrender.com/api/auth/register
+";
 
 document.addEventListener("DOMContentLoaded", () => {
   const registerForm = document.getElementById("registerForm");
