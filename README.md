@@ -4,7 +4,9 @@ FitFlow is a responsive fitness web app designed to help users track workouts, p
 
 ⚙️ Tech Stack
 Frontend: React.js, CSS, JavaScript
+
 Backend: Node.js, Express.js, MongoDB (in separate repo)
+
 Auth: JWT-based authentication
 
 Features
