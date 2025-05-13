@@ -152,4 +152,49 @@
     line-height: 2;
     font-size: 1rem;
   }
+
+  /* Form Section */
+.form-section {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  background: #2e3b4e;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.submit-btn {
+  background: #4caf50;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background: #43a047;
+}
   
