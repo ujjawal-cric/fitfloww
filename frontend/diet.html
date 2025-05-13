@@ -24,62 +24,100 @@
 
   <div class="dashboard-container">
     <header class="dashboard-header">
-      <h1>Your Personalized Diet Plan</h1>
+      <h1>Select Your Fitness Goal</h1>
     </header>
 
-    <section class="dashboard-cards">
-      <div class="card">
-        <h3>Breakfast</h3>
-        <ul>
-          <li>🥚 2 Boiled Eggs</li>
-          <li>🍞 2 Brown Bread Toasts</li>
-          <li>🍌 1 Banana</li>
-          <li>🥛 1 Glass Milk or Protein Shake</li>
-        </ul>
-      </div>
+    <section class="form-section">
+      <form id="dietForm">
+        <div class="form-group">
+          <label for="gender">Gender:</label>
+          <select id="gender" required>
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
 
-      <div class="card">
-        <h3>Lunch</h3>
-        <ul>
-          <li>🍚 Brown Rice or Chapati (2)</li>
-          <li>🍗 Grilled Chicken or Paneer</li>
-          <li>🥗 Mixed Veg Salad</li>
-          <li>🥣 Curd or Yogurt</li>
-        </ul>
-      </div>
+        <div class="form-group">
+          <label for="goal">Fitness Goal:</label>
+          <select id="goal" required>
+            <option value="">Select</option>
+            <option value="gain">Gain Weight</option>
+            <option value="lose">Lose Weight</option>
+          </select>
+        </div>
 
-      <div class="card">
-        <h3>Evening Snack</h3>
-        <ul>
-          <li>🍎 Apple or Any Seasonal Fruit</li>
-          <li>🫘 Handful of Nuts (Almonds, Walnuts)</li>
-          <li>🧃 Green Tea or Lemon Water</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Dinner</h3>
-        <ul>
-          <li>🍲 Light Soup or Salad</li>
-          <li>🍗 Grilled Fish or Tofu</li>
-          <li>🥬 Steamed Vegetables</li>
-          <li>🥛 Warm Milk before Bed</li>
-        </ul>
-      </div>
+        <button type="submit" class="submit-btn">Show Diet Plan</button>
+      </form>
     </section>
+
+    <section class="dashboard-cards" id="dietPlanSection" style="display: none;"></section>
   </div>
 
   <script>
+    const dietForm = document.getElementById('dietForm');
+    const dietPlanSection = document.getElementById('dietPlanSection');
+
+    const dietPlans = {
+      male: {
+        gain: {
+          breakfast: ['🥚 4 Eggs', '🍞 4 Whole Wheat Toasts', '🍌 1 Banana', '🥛 Protein Shake'],
+          lunch: ['🍚 Brown Rice', '🍗 Grilled Chicken', '🥗 Veg Salad', '🥣 Yogurt'],
+          snack: ['🍎 Apple', '🫘 Almonds', '🥤 Peanut Butter Shake'],
+          dinner: ['🍲 Chicken Soup', '🍗 Fish Fillet', '🥬 Veggies', '🥛 Warm Milk']
+        },
+        lose: {
+          breakfast: ['🥚 2 Egg Whites', '🍞 1 Brown Bread Toast', '🍎 Apple', '🧃 Lemon Water'],
+          lunch: ['🥗 Veg Salad', '🍛 Daal + 1 Chapati', '🥣 Curd'],
+          snack: ['🥒 Cucumber Slices', '🫘 Walnuts'],
+          dinner: ['🥬 Steamed Veggies', '🍲 Soup', '🥛 Skim Milk']
+        }
+      },
+      female: {
+        gain: {
+          breakfast: ['🥚 3 Boiled Eggs', '🍞 2 Multigrain Toasts', '🍌 Banana', '🥛 Milk'],
+          lunch: ['🍚 Quinoa or Brown Rice', '🍗 Grilled Paneer', '🥗 Salad', '🥣 Yogurt'],
+          snack: ['🍊 Orange', '🫘 Mixed Nuts', '🥤 Smoothie'],
+          dinner: ['🍲 Soup', '🍗 Grilled Tofu', '🥬 Broccoli', '🥛 Milk']
+        },
+        lose: {
+          breakfast: ['🍏 Apple', '🥚 1 Egg White', '🍞 1 Toast', '🧃 Green Tea'],
+          lunch: ['🥗 Veg Salad', '🍛 1 Chapati + Mixed Veg'],
+          snack: ['🥒 Veg Sticks', '🫘 Nuts'],
+          dinner: ['🍲 Veg Soup', '🥬 Steamed Broccoli', '🥛 Skim Milk']
+        }
+      }
+    };
+
+    dietForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const gender = document.getElementById('gender').value;
+      const goal = document.getElementById('goal').value;
+
+      if (!gender || !goal) return;
+
+      const plan = dietPlans[gender][goal];
+      dietPlanSection.innerHTML = `
+        <div class="card"><h3>Breakfast</h3><ul>${plan.breakfast.map(item => `<li>${item}</li>`).join('')}</ul></div>
+        <div class="card"><h3>Lunch</h3><ul>${plan.lunch.map(item => `<li>${item}</li>`).join('')}</ul></div>
+        <div class="card"><h3>Evening Snack</h3><ul>${plan.snack.map(item => `<li>${item}</li>`).join('')}</ul></div>
+        <div class="card"><h3>Dinner</h3><ul>${plan.dinner.map(item => `<li>${item}</li>`).join('')}</ul></div>
+      `;
+      dietPlanSection.style.display = 'grid';
+    });
+
     window.addEventListener("load", () => {
       const loader = document.getElementById("loader");
       document.body.style.opacity = "1";
       loader.style.opacity = "0";
-      setTimeout(() => {
-        loader.style.display = "none";
-      }, 500);
+      setTimeout(() => loader.style.display = "none", 500);
     });
   </script>
 </body>
 </html>
+
+
+
+
 
 
