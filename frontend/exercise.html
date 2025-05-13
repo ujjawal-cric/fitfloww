@@ -9,7 +9,7 @@
 </head>
 <body>
   <nav class="navbar">
-    <div class="logo">FitnessZone</div>
+    <div class="logo">FitFlow</div>
     <ul class="nav-links">
       <li><a href="dashboard.html">Dashboard</a></li>
       <li><a href="diet.html">Diet</a></li>
@@ -20,71 +20,73 @@
 
   <div class="dashboard-container">
     <header class="dashboard-header">
-      <h1>Your Workout Plans</h1>
-      
+      <h1>Select Workout Day</h1>
+      <select id="daySelector" onchange="showWorkout()">
+        <option value="">-- Select Day --</option>
+        <option value="Monday">Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
+        <option value="Saturday">Saturday</option>
+      </select>
     </header>
-
-    <section class="dashboard-cards">
-      <div class="card">
-        <h3>Monday - Back Day</h3>
-        <ul>
-          <li>Deadlifts</li>
-          <li>Lat Pulldown</li>
-          <li>Barbell Rows</li>
-          <li>Seated Cable Rows</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Tuesday - Biceps & Triceps</h3>
-        <ul>
-          <li>Barbell Curls</li>
-          <li>Hammer Curls</li>
-          <li>Tricep Pushdowns</li>
-          <li>Dips</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Wednesday - Chest</h3>
-        <ul>
-          <li>Bench Press</li>
-          <li>Incline Dumbbell Press</li>
-          <li>Chest Fly</li>
-          <li>Push Ups</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Thursday - Shoulders</h3>
-        <ul>
-          <li>Military Press</li>
-          <li>Lateral Raises</li>
-          <li>Front Raises</li>
-          <li>Rear Delt Fly</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Friday - Arms Focus</h3>
-        <ul>
-          <li>EZ Bar Curls</li>
-          <li>Preacher Curls</li>
-          <li>Tricep Extensions</li>
-          <li>Overhead Dumbbell Extensions</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Saturday - Abs</h3>
-        <ul>
-          <li>Crunches</li>
-          <li>Leg Raises</li>
-          <li>Russian Twists</li>
-          <li>Planks</li>
-        </ul>
-      </div>
+  
+    <section class="dashboard-cards" id="exerciseContent">
+      <!-- Dynamic content appears here -->
     </section>
   </div>
+  
+    </section>
+  </div>
+  <script>
+    const workoutData = {
+      Monday: {
+        title: "Back Day",
+        exercises: ["Deadlifts", "Lat Pulldown", "Barbell Rows", "Seated Cable Rows"]
+      },
+      Tuesday: {
+        title: "Biceps & Triceps",
+        exercises: ["Barbell Curls", "Hammer Curls", "Tricep Pushdowns", "Dips"]
+      },
+      Wednesday: {
+        title: "Chest",
+        exercises: ["Bench Press", "Incline Dumbbell Press", "Chest Fly", "Push Ups"]
+      },
+      Thursday: {
+        title: "Shoulders",
+        exercises: ["Military Press", "Lateral Raises", "Front Raises", "Rear Delt Fly"]
+      },
+      Friday: {
+        title: "Arms Focus",
+        exercises: ["EZ Bar Curls", "Preacher Curls", "Tricep Extensions", "Overhead Dumbbell Extensions"]
+      },
+      Saturday: {
+        title: "Abs",
+        exercises: ["Crunches", "Leg Raises", "Russian Twists", "Planks"]
+      }
+    };
+  
+    function showWorkout() {
+      const selectedDay = document.getElementById("daySelector").value;
+      const container = document.getElementById("exerciseContent");
+  
+      if (!selectedDay) {
+        container.innerHTML = "";
+        return;
+      }
+  
+      const { title, exercises } = workoutData[selectedDay];
+      container.innerHTML = `
+        <div class="card">
+          <h3>${selectedDay} - ${title}</h3>
+          <ul>
+            ${exercises.map(ex => `<li>${ex}</li>`).join("")}
+          </ul>
+        </div>
+      `;
+    }
+  </script>
+  
 </body>
 </html>
